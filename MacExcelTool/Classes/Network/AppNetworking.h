@@ -1,0 +1,137 @@
+//
+//  AppNetworking.h
+//
+//  Created by dyf on 16/6/30.
+//  Copyright © 2016年 dyf. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+/** ANMethod */
+typedef NS_ENUM(NSUInteger, ANMethod) {
+	/** GET Method */
+	ANMethodGET = 1,
+	/** POST Method */
+	ANMethodPOST = 2
+};
+
+/**
+ *  ANCallbackHandler
+ *
+ *  @param response       URL Response
+ *  @param responseObject 返回数据
+ *  @param error          错误
+ */
+typedef void (^ANCallbackHandler)(NSURLResponse *response, id responseObject, NSError *error);
+
+/**
+ *  ANUploadProgressBlock
+ *
+ *  @param uploadProgress A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
+ */
+typedef void (^ANUploadProgressBlock)(NSProgress *uploadProgress);
+
+/**
+ *  ANDownloadProgressBlock
+ *
+ *  @param downloadProgress A block object to be executed when the download progress is updated. Note this block is called on the session queue, not the main queue.
+ */
+typedef void (^ANDownloadProgressBlock)(NSProgress *downloadProgress);
+
+/**
+ *  ANDestinationBlock
+ *
+ *  @param targetPath 目标路径
+ *  @param response   URL response
+ *
+ *  @return An `NSURL` object
+ */
+typedef NSURL *(^ANDestinationBlock)(NSURL *targetPath, NSURLResponse *response);
+
+@interface AppNetworking : NSObject
+
+/**
+ *  是否允许无效证书
+ *
+ *  @param allowed YES or NO
+ */
++ (void)allowInvalidCertificates:(BOOL)allowed;
+
+/**
+ *  Request Serialization
+ *
+ *  @param method     请求方法
+ *  @param URLString  请求地址
+ *  @param parameters 请求参数
+ *
+ *  @return An `NSMutableURLRequest` object
+ */
+- (NSMutableURLRequest *)requestWithMethod:(ANMethod)method URLString:(NSString *)URLString parameters:(id)parameters;
+
+/**
+ *  Request Serialization
+ *
+ *  @param method          请求方法
+ *  @param URLString       请求地址
+ *  @param parameters      请求参数
+ *  @param timeoutInterval 请求超时
+ *
+ *  @return An `NSMutableURLRequest` object
+ */
+- (NSMutableURLRequest *)requestWithMethod:(ANMethod)method URLString:(NSString *)URLString parameters:(id)parameters timeoutInterval:(NSTimeInterval)timeoutInterval;
+
+/**
+ *  Creating a Data Task
+ *
+ *  @param request           URL请求
+ *  @param completionHandler 完成回调
+ *
+ *  @return An `NSURLSessionDataTask` object
+ */
+- (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request completionHandler:(ANCallbackHandler)completionHandler;
+
+/**
+ *  Creating a Data Task
+ *
+ *  @param request               URL请求
+ *  @param uploadProgressBlock   上传进度Block
+ *  @param downloadProgressBlock 下载进度Block
+ *  @param completionHandler     完成回调
+ *
+ *  @return An `NSURLSessionDataTask` object
+ */
+- (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
+							   uploadProgress:(ANUploadProgressBlock)uploadProgressBlock
+							 downloadProgress:(ANDownloadProgressBlock)downloadProgressBlock
+							completionHandler:(ANCallbackHandler)completionHandler;
+
+/**
+ *  Creates an `NSURLSessionUploadTask` with the specified request for a local file.
+ *
+ *  @param request             URL请求
+ *  @param fileURL             文件URL地址
+ *  @param uploadProgressBlock 上传进度Block
+ *  @param completionHandler   完成回调
+ *
+ *  @return An `NSURLSessionUploadTask` object
+ */
+- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request
+										 fromFile:(NSURL *)fileURL
+										 progress:(ANUploadProgressBlock) uploadProgressBlock
+								completionHandler:(ANCallbackHandler)completionHandler;
+
+/**
+ *  Creates an `NSURLSessionDownloadTask` with the specified request.
+ *
+ *  @param request               URL请求
+ *  @param downloadProgressBlock 下载进度Block
+ *  @param destination           目的地Block
+ *  @param completionHandler     完成回调
+ *
+ *  @return An `NSURLSessionDownloadTask` object
+ */
+- (NSURLSessionDownloadTask *)downloadTaskWithRequest:(NSURLRequest *)request
+											 progress:(ANDownloadProgressBlock)downloadProgressBlock
+										  destination:(ANDestinationBlock)destination
+									completionHandler:(ANCallbackHandler)completionHandler;
+@end
