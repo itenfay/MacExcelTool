@@ -20,7 +20,7 @@
 		96ED31431FEA6E31000B3C76 /* FileConvertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96ED2FB61FEA6E30000B3C76 /* FileConvertViewController.xib */; };
 		96ED31461FEA6E31000B3C76 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 96ED2FBC1FEA6E30000B3C76 /* AppConstants.m */; };
 		96ED31471FEA6E31000B3C76 /* AppStatusBarEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 96ED2FBF1FEA6E30000B3C76 /* AppStatusBarEvents.m */; };
-		96ED31481FEA6E31000B3C76 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 96ED2FC11FEA6E30000B3C76 /* AppUtil.m */; };
+		96ED31481FEA6E31000B3C76 /* AppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 96ED2FC11FEA6E30000B3C76 /* AppUtils.m */; };
 		96ED314A1FEA6E31000B3C76 /* AppNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 96ED2FC71FEA6E30000B3C76 /* AppNetworking.m */; };
 		96ED314B1FEA6E31000B3C76 /* AYProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 96ED2FCA1FEA6E30000B3C76 /* AYProgressIndicator.m */; };
 		96ED314C1FEA6E31000B3C76 /* BorderlessWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 96ED2FCC1FEA6E30000B3C76 /* BorderlessWindow.m */; };
@@ -63,8 +63,8 @@
 		96ED2FBD1FEA6E30000B3C76 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacros.h; sourceTree = "<group>"; };
 		96ED2FBE1FEA6E30000B3C76 /* AppStatusBarEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStatusBarEvents.h; sourceTree = "<group>"; };
 		96ED2FBF1FEA6E30000B3C76 /* AppStatusBarEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStatusBarEvents.m; sourceTree = "<group>"; };
-		96ED2FC01FEA6E30000B3C76 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtil.h; sourceTree = "<group>"; };
-		96ED2FC11FEA6E30000B3C76 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtil.m; sourceTree = "<group>"; };
+		96ED2FC01FEA6E30000B3C76 /* AppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtils.h; sourceTree = "<group>"; };
+		96ED2FC11FEA6E30000B3C76 /* AppUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtils.m; sourceTree = "<group>"; };
 		96ED2FC61FEA6E30000B3C76 /* AppNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppNetworking.h; sourceTree = "<group>"; };
 		96ED2FC71FEA6E30000B3C76 /* AppNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppNetworking.m; sourceTree = "<group>"; };
 		96ED2FC91FEA6E30000B3C76 /* AYProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYProgressIndicator.h; sourceTree = "<group>"; };
@@ -189,8 +189,8 @@
 				96ED2FBD1FEA6E30000B3C76 /* AppMacros.h */,
 				96ED2FBE1FEA6E30000B3C76 /* AppStatusBarEvents.h */,
 				96ED2FBF1FEA6E30000B3C76 /* AppStatusBarEvents.m */,
-				96ED2FC01FEA6E30000B3C76 /* AppUtil.h */,
-				96ED2FC11FEA6E30000B3C76 /* AppUtil.m */,
+				96ED2FC01FEA6E30000B3C76 /* AppUtils.h */,
+				96ED2FC11FEA6E30000B3C76 /* AppUtils.m */,
 			);
 			path = CoreFunc;
 			sourceTree = "<group>";
@@ -337,7 +337,7 @@
 				96ED313C1FEA6E31000B3C76 /* AFNetworkReachabilityManager.m in Sources */,
 				96ED314F1FEA6E31000B3C76 /* AppDelegate.m in Sources */,
 				96ED313D1FEA6E31000B3C76 /* AFSecurityPolicy.m in Sources */,
-				96ED31481FEA6E31000B3C76 /* AppUtil.m in Sources */,
+				96ED31481FEA6E31000B3C76 /* AppUtils.m in Sources */,
 				96ED31471FEA6E31000B3C76 /* AppStatusBarEvents.m in Sources */,
 				96ED31531FEA6E31000B3C76 /* main.m in Sources */,
 				96ED313B1FEA6E31000B3C76 /* AFHTTPSessionManager.m in Sources */,
@@ -457,7 +457,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BasicFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dyf.macexceltool;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asd.macexceltool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -471,7 +471,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BasicFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dyf.macexceltool;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asd.macexceltool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

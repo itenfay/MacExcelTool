@@ -7,7 +7,7 @@
 
 #import "FileConvertViewController.h"
 #import "AppConstants.h"
-#import "AppUtil.h"
+#import "AppUtils.h"
 #import "AYProgressIndicator.h"
 
 typedef NS_ENUM(NSUInteger, FileConvertType) {
@@ -78,19 +78,19 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 }
 
 - (void)loadHistoricRecords {
-    NSString *txtDirpath = [AppUtil localRead:kTxtDirPath];
+    NSString *txtDirpath = [AppUtils localRead:kTxtDirPath];
     if (txtDirpath) {
         self.tf_txtDirpath.stringValue = txtDirpath;
     }
-    NSString *xlsxOutDirpath = [AppUtil localRead:kXlsxOutputDirPath];
+    NSString *xlsxOutDirpath = [AppUtils localRead:kXlsxOutputDirPath];
     if (xlsxOutDirpath) {
         self.tf_xlsxOutputPath.stringValue = xlsxOutDirpath;
     }
-    NSString *xlsxDirpath = [AppUtil localRead:kXlsxDirPath];
+    NSString *xlsxDirpath = [AppUtils localRead:kXlsxDirPath];
     if (xlsxDirpath) {
         self.tf_xlsxDirpath.stringValue = xlsxDirpath;
     }
-    NSString *txtOutDirpath = [AppUtil localRead:kTxtOutputDirPath];
+    NSString *txtOutDirpath = [AppUtils localRead:kTxtOutputDirPath];
     if (txtOutDirpath) {
         self.tf_txtOutputPath.stringValue = txtOutDirpath;
     }
@@ -153,21 +153,21 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 }
 
 - (IBAction)selectTxtDirectory:(id)sender {
-    AppUtil *util = [[AppUtil alloc] init];
-    [util openFinder:NO chooseDirectories:YES canCreateDirectories:YES allowedFileTypes:nil completionHandler:^(NSString *path) {
+    AppUtils *utils = [[AppUtils alloc] init];
+    [utils openFinder:NO chooseDirectories:YES canCreateDirectories:YES allowedFileTypes:nil completionHandler:^(NSString *path) {
         if (path) {
             [self.tf_txtDirpath setStringValue:path];
-            [AppUtil localStore:path forKey:kTxtDirPath];
+            [AppUtils localStore:path forKey:kTxtDirPath];
         }
     }];
 }
 
 - (IBAction)selectXlsxOutputDirectory:(id)sender {
-    AppUtil *util = [[AppUtil alloc] init];
-    [util openFinder:NO chooseDirectories:YES canCreateDirectories:YES allowedFileTypes:nil completionHandler:^(NSString *path) {
+    AppUtils *utils = [[AppUtils alloc] init];
+    [utils openFinder:NO chooseDirectories:YES canCreateDirectories:YES allowedFileTypes:nil completionHandler:^(NSString *path) {
         if (path) {
             [self.tf_xlsxOutputPath setStringValue:path];
-            [AppUtil localStore:path forKey:kXlsxOutputDirPath];
+            [AppUtils localStore:path forKey:kXlsxOutputDirPath];
         }
     }];
 }
@@ -177,21 +177,21 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 }
 
 - (IBAction)selectXlsxDirectory:(id)sender {
-    AppUtil *util = [[AppUtil alloc] init];
-    [util openFinder:NO chooseDirectories:YES canCreateDirectories:YES allowedFileTypes:nil completionHandler:^(NSString *path) {
+    AppUtils *utils = [[AppUtils alloc] init];
+    [utils openFinder:NO chooseDirectories:YES canCreateDirectories:YES allowedFileTypes:nil completionHandler:^(NSString *path) {
         if (path) {
             [self.tf_xlsxDirpath setStringValue:path];
-            [AppUtil localStore:path forKey:kXlsxDirPath];
+            [AppUtils localStore:path forKey:kXlsxDirPath];
         }
     }];
 }
 
 - (IBAction)selectTxtOutputDirectory:(id)sender {
-    AppUtil *util = [[AppUtil alloc] init];
-    [util openFinder:NO chooseDirectories:YES canCreateDirectories:YES allowedFileTypes:nil completionHandler:^(NSString *path) {
+    AppUtils *utils = [[AppUtils alloc] init];
+    [utils openFinder:NO chooseDirectories:YES canCreateDirectories:YES allowedFileTypes:nil completionHandler:^(NSString *path) {
         if (path) {
             [self.tf_txtOutputPath setStringValue:path];
-            [AppUtil localStore:path forKey:kTxtOutputDirPath];
+            [AppUtils localStore:path forKey:kTxtOutputDirPath];
         }
     }];
 }
@@ -205,7 +205,7 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 }
 
 - (void)alertUser:(NSString *)title message:(NSString *)message {
-    [AppUtil showAlert:self.window style:NSInformationalAlertStyle title:title message:message buttonTitles:@[@"好的"] completionHandler:nil];
+    [AppUtils showAlert:self.window style:NSInformationalAlertStyle title:title message:message buttonTitles:@[@"好的"] completionHandler:nil];
 }
 
 - (void)predictScheduleScale {
@@ -229,7 +229,7 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 }
 
 - (IBAction)closeAction:(id)sender {
-    [AppUtil showAlert:self.window style:NSInformationalAlertStyle title:@"温馨提示" message:@"确定退出应用吗？" buttonTitles:@[@"退出", @"取消"] completionHandler:^(NSInteger returnCode) {
+    [AppUtils showAlert:self.window style:NSInformationalAlertStyle title:@"温馨提示" message:@"确定退出应用吗？" buttonTitles:@[@"退出", @"取消"] completionHandler:^(NSInteger returnCode) {
         if (returnCode == NSAlertFirstButtonReturn) {
             [self terminateApp:sender];
         }
@@ -307,8 +307,8 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 - (void)fileHandleReadCompleted:(NSNotification *)noti {
     NSData *data =[[noti userInfo] objectForKey:NSFileHandleNotificationDataItem];
     NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    DBLog(@"FileHandleReadToEndOfFileCompletion: msg = %@", msg);
-    //NSString *filename = [NSString stringWithFormat:@"FCLog.data"];
+    DBLog(@"FileHandleReadToEndOfFileCompletion msg: %@", msg);
+    //NSString *filename = [NSString stringWithFormat:@"fclog.data"];
     //[self writeToFile:filename errorLog:data];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSFileHandleReadToEndOfFileCompletionNotification object:[noti object]];
 }
@@ -352,7 +352,7 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 
 - (void)next:(NSInteger)index {
     if (index < self.fileArray.count) {
-        DBLog(@"index = %zi", index);
+        DBLog(@"index: %zi", index);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self updateProgress];
@@ -382,7 +382,7 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 }
 
 - (void)showCompletionTips {
-    [AppUtil showAlert:self.window style:NSInformationalAlertStyle title:@"温馨提示" message:@"文件已全部完成转换" buttonTitles:@[@"前往", @"取消"] completionHandler:^(NSInteger returnCode) {
+    [AppUtils showAlert:self.window style:NSInformationalAlertStyle title:@"温馨提示" message:@"文件已全部完成转换" buttonTitles:@[@"前往", @"取消"] completionHandler:^(NSInteger returnCode) {
         if (returnCode == NSAlertFirstButtonReturn) {
             NSString *dirpath = (self.fcType == FileConvertTypeExcel) ? self.tf_xlsxOutputPath.stringValue : self.tf_txtOutputPath.stringValue;
             [[NSWorkspace sharedWorkspace] openFile:dirpath];

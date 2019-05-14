@@ -17,8 +17,7 @@
     [self loadFileConversionViewController];
 }
 
-- (void)loadFileConversionViewController
-{
+- (void)loadFileConversionViewController {
     FileConvertViewController *vc = [[FileConvertViewController alloc] init];
     [self addChildViewController:vc];
     [self.view addSubview:vc.view];

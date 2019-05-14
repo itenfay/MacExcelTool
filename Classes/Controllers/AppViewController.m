@@ -18,13 +18,11 @@
 	// Do view setup here.
 }
 
-- (void)hideApp:(id)sender
-{
+- (void)hideApp:(id)sender {
 	[[NSApplication sharedApplication] hide:sender];
 }
 
-- (void)terminateApp:(id)sender
-{
+- (void)terminateApp:(id)sender {
 	[[NSApplication sharedApplication] terminate:sender];
 }
 

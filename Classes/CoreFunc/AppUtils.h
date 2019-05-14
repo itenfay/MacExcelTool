@@ -1,5 +1,5 @@
 //
-//  AppUtil.h
+//  AppUtils.h
 //
 //  Created by dyf on 16/6/7.
 //  Copyright © 2016年 dyf. All rights reserved.
@@ -13,7 +13,7 @@ typedef void (^AppChooseResponseBlock)(NSString *path);
 // AppGetCertsResponseBlock
 typedef void (^AppGetCertsResponseBlock)(NSMutableArray *certs);
 
-@interface AppUtil : NSObject
+@interface AppUtils : NSObject
 
 /**
  *  打开Finder，选择文件或目录

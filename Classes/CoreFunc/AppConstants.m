@@ -13,7 +13,7 @@ NSString *const kXlsxOutputDirPath = @"XlsxOutputDirPath";
 
 NSString *const kXlsxDirPath = @"XlsxDirPath";
 
-NSString *const kTxtOutputDirPath = @"kTxtOutputDirPath";
+NSString *const kTxtOutputDirPath = @"TxtOutputDirPath";
 
 NSString *const kMallocNanoZone = @"MallocNanoZone";
 
