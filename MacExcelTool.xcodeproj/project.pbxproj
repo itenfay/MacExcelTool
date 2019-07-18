@@ -106,7 +106,7 @@
 				96ED2FDA1FEA6E30000B3C76 /* Resources */,
 				96ED2FB01FEA6E30000B3C76 /* Classes */,
 				96ED2FA11FEA6E30000B3C76 /* Libs */,
-				96ED2FD01FEA6E30000B3C76 /* BasicFiles */,
+				96ED2FD01FEA6E30000B3C76 /* Basic Files */,
 				96CB889D1D054C6800876ECC /* Frameworks */,
 				966AF3011CFD38F800BCDB42 /* Products */,
 			);
@@ -215,7 +215,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		96ED2FD01FEA6E30000B3C76 /* BasicFiles */ = {
+		96ED2FD01FEA6E30000B3C76 /* Basic Files */ = {
 			isa = PBXGroup;
 			children = (
 				96ED2FD11FEA6E30000B3C76 /* AppDelegate.h */,
@@ -227,7 +227,7 @@
 				96ED2FD81FEA6E30000B3C76 /* ViewController.h */,
 				96ED2FD91FEA6E30000B3C76 /* ViewController.m */,
 			);
-			path = BasicFiles;
+			path = "Basic Files";
 			sourceTree = "<group>";
 		};
 		96ED2FDA1FEA6E30000B3C76 /* Resources */ = {
@@ -454,7 +454,7 @@
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = "$(SRCROOT)/BasicFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Basic Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.asd.macexceltool;
@@ -468,7 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/BasicFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Basic Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.asd.macexceltool;
