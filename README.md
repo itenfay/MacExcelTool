@@ -14,6 +14,6 @@
 
 ![](https://github.com/dgynfi/MacExcelTool/raw/master/Resources/xg_preview.png)
 
-## 
+## Release
 
-- [App Link]()
+- [App Link](https://github.com/dgynfi/MacExcelTool/tree/master/Release/MacExcelTool.app)
