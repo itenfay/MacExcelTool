@@ -4,6 +4,27 @@
 //  Created by dyf on 16/6/6.
 //  Copyright © 2016年 dyf. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the "Software"), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
 
 #import "FileConvertViewController.h"
 #import "AppConstants.h"
@@ -52,29 +73,29 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 }
 
 - (void)setupProgressIndicator {
-    self.progressIndicator.maxValue = 1.0;
-    self.progressIndicator.minValue = 0.0;
-    self.progressIndicator.doubleValue = 0.0;
-    self.progressIndicator.emptyColor = [NSColor whiteColor];
+    self.progressIndicator.maxValue      = 1.0;
+    self.progressIndicator.minValue      = 0.0;
+    self.progressIndicator.doubleValue   = 0.0;
+    self.progressIndicator.emptyColor    = [NSColor whiteColor];
     self.progressIndicator.progressColor = [NSColor greenColor];
 }
 
 - (void)conversionBeginning {
-    self.selectTxtDirButton.enabled = NO;
+    self.selectTxtDirButton.enabled        = NO;
     self.selectXlsxOutputDirButton.enabled = NO;
-    self.txtToXlsxButton.enabled = NO;
-    self.selectXlsxDirButton.enabled = NO;
-    self.selectTxtOutputDirButton.enabled = NO;
-    self.xlsxToTxtButton.enabled = NO;
+    self.txtToXlsxButton.enabled           = NO;
+    self.selectXlsxDirButton.enabled       = NO;
+    self.selectTxtOutputDirButton.enabled  = NO;
+    self.xlsxToTxtButton.enabled           = NO;
 }
 
 - (void)conversionEnding {
-    self.selectTxtDirButton.enabled = YES;
+    self.selectTxtDirButton.enabled        = YES;
     self.selectXlsxOutputDirButton.enabled = YES;
-    self.txtToXlsxButton.enabled = YES;
-    self.selectXlsxDirButton.enabled = YES;
-    self.selectTxtOutputDirButton.enabled = YES;
-    self.xlsxToTxtButton.enabled = YES;
+    self.txtToXlsxButton.enabled           = YES;
+    self.selectXlsxDirButton.enabled       = YES;
+    self.selectTxtOutputDirButton.enabled  = YES;
+    self.xlsxToTxtButton.enabled           = YES;
 }
 
 - (void)loadHistoricRecords {
@@ -82,14 +103,17 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
     if (txtDirpath) {
         self.tf_txtDirpath.stringValue = txtDirpath;
     }
+    
     NSString *xlsxOutDirpath = [AppUtils localRead:kXlsxOutputDirPath];
     if (xlsxOutDirpath) {
         self.tf_xlsxOutputPath.stringValue = xlsxOutDirpath;
     }
+    
     NSString *xlsxDirpath = [AppUtils localRead:kXlsxDirPath];
     if (xlsxDirpath) {
         self.tf_xlsxDirpath.stringValue = xlsxDirpath;
     }
+    
     NSString *txtOutDirpath = [AppUtils localRead:kTxtOutputDirPath];
     if (txtOutDirpath) {
         self.tf_txtOutputPath.stringValue = txtOutDirpath;
@@ -98,12 +122,14 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
 
 - (BOOL)validateTextFieldStringValue {
     BOOL result = NO;
+    
     if (self.fcType == FileConvertTypeExcel) {
         result = self.tf_txtDirpath.stringValue.length > 0 ? YES : NO;
         if (!result) {
             [self alertUser:@"提示" message:@"请选择被转换的txt目录"];
             return NO;
         }
+        
         result = self.tf_xlsxOutputPath.stringValue.length > 0 ? YES : NO;
         if (!result) {
             [self alertUser:@"提示" message:@"请选择输出excel的目录"];
@@ -115,23 +141,27 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
             [self alertUser:@"提示" message:@"请选择被转换的excel目录"];
             return NO;
         }
+        
         result = self.tf_txtOutputPath.stringValue.length > 0 ? YES : NO;
         if (!result) {
             [self alertUser:@"提示" message:@"请选择输出txt的目录"];
             return NO;
         }
     }
+    
     return YES;
 }
 
 - (BOOL)validatePathExists {
     NSFileManager *fileMgr = [NSFileManager defaultManager];
+    
     if (self.fcType == FileConvertTypeExcel) {
         NSString *projPath = self.tf_txtDirpath.stringValue;
         if (![fileMgr fileExistsAtPath:projPath]) {
             [self alertUser:@"提示" message:@"txt目录不存在"];
             return NO;
         }
+        
         NSString *outPath = self.tf_xlsxOutputPath.stringValue;
         if (![fileMgr fileExistsAtPath:outPath]) {
             [self alertUser:@"提示" message:@"excel输出目录不存在"];
@@ -143,12 +173,14 @@ typedef NS_ENUM(NSUInteger, FileConvertType) {
             [self alertUser:@"提示" message:@"excel目录不存在"];
             return NO;
         }
+        
         NSString *sdksPath = self.tf_txtOutputPath.stringValue;
         if (![fileMgr fileExistsAtPath:sdksPath]) {
             [self alertUser:@"提示" message:@"txt输出目录不存在"];
             return NO;
         }
     }
+    
     return YES;
 }
 
