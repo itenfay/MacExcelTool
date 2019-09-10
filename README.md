@@ -4,16 +4,22 @@
 
 ## 技术交流群(群号:155353383) 
 
-欢迎加入技术交流群，一起探讨技术问题。<br />
-![](https://github.com/dgynfi/MacExcelTool/raw/master/Resources/qq155353383.jpg)
+- 欢迎加入技术交流群，一起探讨技术问题。
+
+<div align=center>
+<img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/qq155353383.jpg" width="20%" />
+</div>
 
 ## MacExcelTool
- 一款将excel文件(.xlsx)与TXT文件(.txt)互相转换的MacOS应用。本应用主要使用了MacOS程序与脚本之间的交互，通过调用脚本与监听事件完成相应的任务和进度提示。
+
+ &emsp; 一款将 excel 文件 (.xlsx)与 txt 文件 (.txt) 互相转换的 Mac 应用。本应用主要使用了 Mac 程序与脚本之间的交互，通过调用脚本与监听事件完成相应的任务和进度提示。
 
 ## 预览
 
-![](https://github.com/dgynfi/MacExcelTool/raw/master/Resources/xg_preview.png)
+<div align=center>
+<img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/xg_preview.png" width="60%" />
+</div>
 
 ## Release
 
-- [App Link](https://github.com/dgynfi/MacExcelTool/tree/master/Release/MacExcelTool.app)
+- [App Link](https://github.com/dgynfi/MacExcelTool/tree/master/Release/)
