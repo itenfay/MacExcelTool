@@ -7,7 +7,7 @@
 - 欢迎加入技术交流群，一起探讨技术问题。
 
 <div align=center>
-<img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/qq155353383.jpg" width="20%" />
+&emsp; <img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/qq155353383.jpg" width="20%" />
 </div>
 
 ## MacExcelTool
@@ -17,7 +17,7 @@
 ## 预览
 
 <div align=center>
-<img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/xg_preview.png" width="60%" />
+&emsp; <img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/xg_preview.png" width="60%" />
 </div>
 
 ## Release
