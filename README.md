@@ -4,7 +4,7 @@
 
 ## Group (ID:614799921)
 
-<div align=center>
+<div align=left>
 &emsp; <img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/g614799921.jpg" width="30%" />
 </div>
 
@@ -14,7 +14,7 @@
 
 ## Preview
 
-<div align=center>
+<div align=left>
 &emsp; <img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/xg_preview.png" width="60%" />
 </div>
 
