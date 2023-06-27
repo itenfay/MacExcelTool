@@ -1,11 +1,11 @@
-[如果此项目能帮助到你，就请你给一颗星。谢谢！(If this project can help you, please give it a star. Thanks!)](https://github.com/dgynfi/MacExcelTool)
+[如果此项目能帮助到你，就请你给一颗星。谢谢！(If this project can help you, please give it a star. Thanks!)](https://github.com/chenxing640/MacExcelTool)
 
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)&nbsp;
 
 ## Group (ID:614799921)
 
 <div align=left>
-&emsp; <img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/g614799921.jpg" width="30%" />
+&emsp; <img src="https://github.com/chenxing640/MacExcelTool/raw/master/Resources/g614799921.jpg" width="30%" />
 </div>
 
 ## MacExcelTool
@@ -15,10 +15,9 @@
 ## Preview
 
 <div align=left>
-&emsp; <img src="https://github.com/dgynfi/MacExcelTool/raw/master/Resources/xg_preview.png" width="60%" />
+&emsp; <img src="https://github.com/chenxing640/MacExcelTool/raw/master/Resources/xg_preview.png" width="60%" />
 </div>
 
 ## Release
 
-- [App Link](https://github.com/dgynfi/MacExcelTool/tree/master/Release/)
-
+- [App Link](https://github.com/chenxing640/MacExcelTool/tree/master/Release/)
